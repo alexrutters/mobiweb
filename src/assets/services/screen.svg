@@ -1,0 +1,21 @@
+<svg width="900" height="640" viewBox="0 0 900 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgScreen" x1="130" y1="60" x2="760" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FBFB"/>
+      <stop offset="1" stop-color="#DCEEF0"/>
+    </linearGradient>
+    <linearGradient id="screenGlass" x1="260" y1="120" x2="640" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7F6F1"/>
+      <stop offset="1" stop-color="#92E0D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="640" rx="36" fill="url(#bgScreen)"/>
+  <circle cx="725" cy="140" r="75" fill="#EEFDFB"/>
+  <rect x="196" y="92" width="508" height="456" rx="34" fill="#0E1B22"/>
+  <rect x="224" y="122" width="452" height="396" rx="26" fill="url(#screenGlass)"/>
+  <path d="M300 342L414 246L496 318L620 210" stroke="#F3FEFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <path d="M360 420C390 392 430 378 480 382C529 387 565 408 602 430" stroke="#F7FFFE" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+  <rect x="388" y="532" width="124" height="16" rx="8" fill="#1B2D38"/>
+  <circle cx="254" cy="214" r="14" fill="#DFFCF9" opacity="0.8"/>
+  <circle cx="640" cy="160" r="10" fill="#DFFCF9" opacity="0.8"/>
+</svg>

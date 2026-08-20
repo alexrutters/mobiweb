@@ -1,0 +1,18 @@
+<svg width="900" height="640" viewBox="0 0 900 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="facebg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 320) rotate(90) scale(330 450)">
+      <stop stop-color="#1A2B33"/>
+      <stop offset="1" stop-color="#05090C"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="640" rx="36" fill="url(#facebg)"/>
+  <circle cx="450" cy="320" r="150" stroke="#5EDDD5" stroke-width="2.5" opacity="0.9"/>
+  <circle cx="450" cy="320" r="96" stroke="#A7F3EE" stroke-width="2" opacity="0.7"/>
+  <circle cx="450" cy="320" r="58" stroke="#D6FFFB" stroke-width="2" opacity="0.8"/>
+  <path d="M282 312C304 266 339 236 384 220" stroke="#7EF0E8" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+  <path d="M618 312C596 266 561 236 516 220" stroke="#7EF0E8" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+  <path d="M244 348C281 370 324 384 369 390" stroke="#8AEDE1" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+  <path d="M656 348C619 370 576 384 531 390" stroke="#8AEDE1" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="450" cy="320" r="17" fill="#8DEFE6" opacity="0.85"/>
+  <text x="450" y="470" text-anchor="middle" fill="#EAF8F6" font-size="34" letter-spacing="7" font-family="Arial, sans-serif" font-weight="700">FACE ID</text>
+</svg>
