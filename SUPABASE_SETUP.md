@@ -23,7 +23,6 @@ Estados permitidos:
 - Diagnóstico
 - Esperando aprobación
 - Reparación
-- Control de calidad
 - Listo para retirar
 - Entregado
 

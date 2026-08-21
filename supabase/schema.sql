@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS public.orders (
       'Diagnóstico',
       'Esperando aprobación',
       'Reparación',
-      'Control de calidad',
       'Listo para retirar',
       'Entregado'
     )

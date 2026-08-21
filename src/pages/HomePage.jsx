@@ -1,9 +1,6 @@
-import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import SectionTitle from '../components/SectionTitle'
-import ServiceCard from '../components/ServiceCard'
 import OrderCard from '../components/OrderCard'
-import { services } from '../data/services'
 import { sampleOrder } from '../data/orders'
 import heroImage from '../assets/hero.png'
 
@@ -13,13 +10,6 @@ const trustItems = [
   'Repuestos de calidad',
   'Garantía en reparaciones',
   'Atención personalizada',
-]
-
-const specialtyItems = [
-  { title: 'iPhone', text: 'Pantallas, batería y lógica', tone: 'primary' },
-  { title: 'iPad', text: 'Tablets y accesorios', tone: 'soft' },
-  { title: 'MacBook', text: 'Portátiles premium', tone: 'muted' },
-  { title: 'Multimarca', text: 'Samsung, Xiaomi y más', tone: 'primary' },
 ]
 
 export default function HomePage() {
@@ -37,10 +27,6 @@ export default function HomePage() {
             <p>
               Diagnóstico profesional, reparaciones especializadas y atención para los equipos que usas cada día.
             </p>
-            <div className="hero-actions">
-              <Link to="/seguimiento" className="btn btn-primary">Consultar mi orden</Link>
-              <Link to="/servicios" className="btn btn-secondary">Ver servicios</Link>
-            </div>
             <ul className="hero-meta">
               <li>Apple y multimarca</li>
               <li>Diagnóstico rápido</li>
@@ -52,41 +38,6 @@ export default function HomePage() {
             <div className="hero-visual__frame">
               <img src={heroImage} alt="Selección premium de dispositivos Apple y multimarca atendidos por mobifixes" className="hero-visual__image" />
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--soft">
-        <div className="container">
-          <SectionTitle
-            eyebrow="Servicios"
-            title="Soluciones técnicas para cada necesidad"
-            description="Atención especializada para equipos Apple, Samsung, Motorola y más."
-          />
-
-          <div className="services-grid">
-            {services.slice(0, 4).map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--specialties">
-        <div className="container">
-          <SectionTitle
-            eyebrow="Especialidades"
-            title="Reparaciones premium para todos tus dispositivos"
-            description="Atención exclusiva y personalizada"
-          />
-
-          <div className="specialty-grid">
-            {specialtyItems.map((item) => (
-              <div key={item.title} className={`specialty-card specialty-card--${item.tone}`}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

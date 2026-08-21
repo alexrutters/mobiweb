@@ -3,9 +3,17 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer className="site-footer">
+      <div className="construction-banner">
+        <div className="container construction-banner__inner">
+          Estamos en construcción para darte la mejor atención.
+        </div>
+      </div>
+
       <div className="container footer-grid">
         <div>
-          <div className="brand brand--footer">mobifixes</div>
+          <div className="brand brand--footer brand--footer-circular">
+            <img src="/assets/logo-circular.png" alt="mobifixes" className="brand__logo brand__logo--circular-footer" />
+          </div>
           <p className="footer-copy">Servicio técnico especializado para dispositivos Apple y multimarca.</p>
         </div>
 
