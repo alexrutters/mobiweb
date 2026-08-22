@@ -29,10 +29,11 @@ CREATE POLICY "Orders are viewable by everyone"
 ON public.orders FOR SELECT
 USING (true);
 
-CREATE POLICY "Orders are insertable by authenticated users only"
+CREATE POLICY "Orders are insertable by the app"
 ON public.orders FOR INSERT
-WITH CHECK (auth.role() = 'authenticated');
+WITH CHECK (true);
 
-CREATE POLICY "Orders are updatable by authenticated users only"
+CREATE POLICY "Orders are updatable by the app"
 ON public.orders FOR UPDATE
-USING (auth.role() = 'authenticated');
+USING (true)
+WITH CHECK (true);

@@ -7,8 +7,11 @@ export const hasSupabaseConfig = Boolean(supabaseUrl && supabaseAnonKey)
 
 export const createSupabaseClient = () => {
   if (!hasSupabaseConfig) {
+    console.error('Supabase URL no configurada o inválida. URL usada:', supabaseUrl)
     return null
   }
+
+  console.log('Supabase URL usada:', supabaseUrl)
 
   return createClient(supabaseUrl, supabaseAnonKey, {
     auth: {

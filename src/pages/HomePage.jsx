@@ -1,7 +1,7 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 import SectionTitle from '../components/SectionTitle'
-import OrderCard from '../components/OrderCard'
-import { sampleOrder } from '../data/orders'
 import heroImage from '../assets/hero.png'
 
 const trustItems = [
@@ -13,6 +13,20 @@ const trustItems = [
 ]
 
 export default function HomePage() {
+  const navigate = useNavigate()
+  const [codigo, setCodigo] = useState('')
+
+  const handleTrackingRedirect = (event) => {
+    event.preventDefault()
+    const trimmedCode = codigo.trim()
+
+    if (!trimmedCode) {
+      return
+    }
+
+    navigate('/seguimiento', { state: { codigo: trimmedCode } })
+  }
+
   return (
     <>
       <section className="hero-section">
@@ -50,14 +64,22 @@ export default function HomePage() {
               title="Consulta tu orden"
               description="Ingresa el número de tu orden para conocer el estado actual de tu equipo."
             />
-            <form className="order-search">
-              <input type="text" defaultValue="OT-000001" aria-label="Número de orden" />
+            <form className="order-search" onSubmit={handleTrackingRedirect}>
+              <input
+                type="text"
+                value={codigo}
+                onChange={(event) => setCodigo(event.target.value)}
+                aria-label="Número de orden"
+                placeholder="Ej: OT-000123"
+              />
               <Button type="submit">Consultar</Button>
             </form>
           </div>
 
           <div className="order-result">
-            <OrderCard order={sampleOrder} />
+            <div className="card empty-state">
+              <p>La consulta real se realiza en la página de seguimiento con el código público de tu orden.</p>
+            </div>
           </div>
         </div>
       </section>

@@ -1,8 +1,8 @@
 import SectionTitle from '../components/SectionTitle'
 
 const stats = [
-  { value: '10+', label: 'Años de experiencia' },
-  { value: '1.200+', label: 'Equipos reparados' },
+  { value: '19+', label: 'Años de experiencia' },
+  { value: '3.200+', label: 'Equipos reparados' },
   { value: '99%', label: 'Satisfacción' },
 ]
 

@@ -1,9 +1,9 @@
 export default function StatusBadge({ status }) {
-  const normalized = status?.toLowerCase() || ''
+  const normalized = String(status ?? '').toLowerCase()
 
   let className = 'status-badge '
 
-  if (normalized.includes('diagnóstico') || normalized.includes('reparación')) {
+  if (normalized.includes('diagnóstico') || normalized.includes('reparación') || normalized.includes('calidad')) {
     className += 'status-badge--primary'
   } else if (normalized.includes('listo') || normalized.includes('entregado')) {
     className += 'status-badge--success'

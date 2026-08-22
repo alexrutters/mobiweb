@@ -3,6 +3,7 @@ export const orderStatuses = [
   'Diagnóstico',
   'Esperando aprobación',
   'Reparación',
+  'Control de calidad',
   'Listo para retirar',
   'Entregado',
 ]

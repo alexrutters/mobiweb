@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Button from '../components/Button'
 import OrderCard from '../components/OrderCard'
 import SectionTitle from '../components/SectionTitle'
@@ -6,24 +7,26 @@ import { orderStatusMessages } from '../data/orderStatusMessages'
 import { findOrderByCode, getStatusIndex } from '../services/orderService'
 
 export default function TrackingPage() {
-  const [code, setCode] = useState('')
-  const [order, setOrder] = useState(null)
+  const location = useLocation()
+  const [codigoIngresado, setCodigoIngresado] = useState('')
+  const [ordenEncontrada, setOrdenEncontrada] = useState(null)
   const [status, setStatus] = useState('idle')
   const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
   const currentIndex = useMemo(
-    () => (order ? getStatusIndex(order.state || order.estado) : 0),
-    [order],
+    () => (ordenEncontrada ? getStatusIndex(ordenEncontrada.state || ordenEncontrada.estado) : 0),
+    [ordenEncontrada],
   )
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
+  const consultarOrden = async (codigo) => {
+    const codigoLimpio = String(codigo ?? '').trim()
 
-    const normalizedCode = code.trim()
+    console.log('CODIGO INGRESADO:', codigoLimpio)
 
-    if (!normalizedCode) {
-      setOrder(null)
+    setOrdenEncontrada(null)
+
+    if (!codigoLimpio) {
       setStatus('empty')
       setMessage('Introduce un código de orden para consultar el estado de tu reparación.')
       return
@@ -33,23 +36,39 @@ export default function TrackingPage() {
     setStatus('loading')
     setMessage('Consultando tu orden...')
 
-    const result = await findOrderByCode(normalizedCode)
+    const result = await findOrderByCode(codigoLimpio)
 
     setIsLoading(false)
 
-    if (result.found && result.order) {
-      setOrder(result.order)
+    if (result && result.found && result.order) {
+      setOrdenEncontrada(result.order)
       setStatus('found')
       setMessage(orderStatusMessages[result.order.state || result.order.estado] || 'Tu equipo está en proceso de revisión.')
       return
     }
 
-    setOrder(null)
-    setStatus(result.error ? 'error' : 'not_found')
-    setMessage(result.message || 'No encontramos una reparación con ese código. Revisa la información e inténtalo nuevamente.')
+    setOrdenEncontrada(null)
+    setStatus(result && result.error ? 'error' : 'not_found')
+    setMessage(result && result.message ? result.message : 'No encontramos una orden con ese código.')
   }
 
-  const currentMessage = order ? (orderStatusMessages[order.state || order.estado] || 'Tu equipo está en proceso de revisión.') : message
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    await consultarOrden(codigoIngresado)
+  }
+
+  useEffect(() => {
+    const incomingCode = location.state?.codigo
+
+    if (!incomingCode) {
+      return
+    }
+
+    setCodigoIngresado(String(incomingCode).trim())
+    void consultarOrden(String(incomingCode).trim())
+  }, [location.state])
+
+  const currentMessage = ordenEncontrada ? (orderStatusMessages[ordenEncontrada.state || ordenEncontrada.estado] || 'Tu equipo está en proceso de revisión.') : message
 
   return (
     <section className="page-shell section">
@@ -63,8 +82,8 @@ export default function TrackingPage() {
         <form className="tracking-form" onSubmit={handleSubmit}>
           <input
             type="text"
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
+            value={codigoIngresado}
+            onChange={(e) => setCodigoIngresado(e.target.value)}
             placeholder="Número de orden"
             aria-label="Número de orden"
           />
@@ -97,17 +116,17 @@ export default function TrackingPage() {
           </div>
         )}
 
-        {order && (
+        {ordenEncontrada && (
           <div className="tracking-result">
-            <OrderCard order={order} />
+            <OrderCard order={ordenEncontrada} />
 
             <div className="status-progress card">
               <h3>Progreso de reparación</h3>
               <div className="status-progress__bar">
-                <span style={{ width: `${((currentIndex + 1) / (order.stages?.length || 1)) * 100}%` }} />
+                <span style={{ width: `${((currentIndex + 1) / (ordenEncontrada.stages?.length || 1)) * 100}%` }} />
               </div>
               <div className="status-progress__steps">
-                {(order.stages || []).map((stage, index) => (
+                {(ordenEncontrada.stages || []).map((stage, index) => (
                   <div
                     key={stage}
                     className={['status-progress__step', index <= currentIndex ? 'is-done' : ''].filter(Boolean).join(' ')}
@@ -118,7 +137,7 @@ export default function TrackingPage() {
               </div>
 
               <div className="tracking-status-message">
-                <strong>{order.codigo || order.id}</strong>
+                <strong>{ordenEncontrada.codigo || ordenEncontrada.id}</strong>
                 <p>{currentMessage}</p>
               </div>
             </div>
