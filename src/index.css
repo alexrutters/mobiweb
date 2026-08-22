@@ -188,8 +188,8 @@ p {
 .topbar__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 22px;
+  justify-content: flex-start;
+  gap: 0;
   min-height: 62px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -220,7 +220,7 @@ p {
   height: auto;
   display: inline-flex;
   align-items: center;
-  margin-right: auto;
+  margin-right: 0;
 }
 
 .brand__logo {
@@ -257,10 +257,10 @@ p {
   align-items: center;
   justify-content: flex-end;
   width: auto;
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 18px 28px;
+  flex-wrap: nowrap;
   margin-left: auto;
-  margin-right: 2px;
+  margin-right: 40px;
   padding-right: 0;
 }
 
@@ -269,7 +269,7 @@ p {
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  margin-left: auto;
+  margin-left: 0;
 }
 
 .mobile-menu-toggle {
