@@ -5,6 +5,7 @@ const navItems = [
   { label: 'Inicio', to: '/' },
   { label: 'Servicios', to: '/servicios' },
   { label: 'Tienda', to: '/tienda' },
+  { label: 'Seguimiento', to: '/seguimiento' },
   { label: 'Nosotros', to: '/nosotros' },
   { label: 'Contacto', to: '/contacto' },
 ]

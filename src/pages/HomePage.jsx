@@ -78,7 +78,8 @@ export default function HomePage() {
 
           <div className="order-result">
             <div className="card empty-state">
-              <p>La consulta real se realiza en la página de seguimiento con el código público de tu orden.</p>
+              <h3>Estado de tu reparación</h3>
+              <p>Ingresa el código de tu orden para consultar el estado actual de tu equipo.</p>
             </div>
           </div>
         </div>
