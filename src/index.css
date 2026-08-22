@@ -1443,6 +1443,32 @@ p {
   letter-spacing: -0.03em;
 }
 
+.contact-address-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 6px 10px;
+  border-radius: 12px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition), background-color var(--transition), transform var(--transition);
+}
+
+.contact-address-link:hover,
+.contact-address-link:focus-visible {
+  color: var(--color-primary-strong);
+  background: rgba(38, 180, 170, 0.08);
+}
+
+.contact-address-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
 .contact-whatsapp__button {
   width: 100%;
   margin-top: auto;
