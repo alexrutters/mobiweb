@@ -49,11 +49,13 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
   background: var(--color-background);
@@ -194,6 +196,8 @@ p {
   padding-top: 4px;
   padding-bottom: 4px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .brand {
@@ -1632,11 +1636,14 @@ p {
     justify-content: center;
   }
 
-    .main-nav {
+  .main-nav {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
     top: calc(100% + 8px);
+    width: min(100%, calc(100vw - 20px));
+    max-width: calc(100vw - 20px);
     display: none;
     flex-direction: column;
     align-items: flex-start;
@@ -1647,6 +1654,7 @@ p {
     border-radius: 18px;
     box-shadow: none;
     z-index: 40;
+    box-sizing: border-box;
   }
 
   .main-nav.is-open {
@@ -1657,6 +1665,8 @@ p {
     width: 100%;
     padding: 6px 0;
     font-size: 0.96rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .device-card__float--mac {
@@ -1694,6 +1704,7 @@ p {
     padding-top: 8px;
     padding-bottom: 8px;
     justify-content: space-between;
+    width: min(100%, calc(100vw - 20px));
   }
 
   .brand {
@@ -1702,6 +1713,8 @@ p {
 
   .brand--logo-horizontal {
     width: clamp(140px, 38vw, 200px);
+    max-width: 100%;
+    min-width: 0;
   }
 
   .brand--black {
@@ -1822,6 +1835,20 @@ p {
 
   .btn {
     width: 100%;
+  }
+
+  .topbar__inner {
+    width: min(100%, calc(100vw - 16px));
+  }
+
+  .main-nav {
+    width: min(100%, calc(100vw - 16px));
+    max-width: calc(100vw - 16px);
+    padding: 16px 14px;
+  }
+
+  .nav-link {
+    font-size: 0.92rem;
   }
 
 }
