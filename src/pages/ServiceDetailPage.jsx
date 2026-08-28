@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import Button from '../components/Button'
-import { getServiceById } from '../data/services'
+import { getServiceById, openServiceWhatsApp } from '../data/services'
 import bateriaReal from '../assets/services/bateria-real.jpeg'
 
 const batterySignals = [
@@ -42,6 +42,10 @@ const batteryProcess = [
 export default function ServiceDetailPage() {
   const { serviceId } = useParams()
   const service = getServiceById(serviceId)
+
+  const handleConsultService = () => {
+    openServiceWhatsApp(service.nombre)
+  }
 
   if (!service) {
     return (
@@ -183,19 +187,14 @@ export default function ServiceDetailPage() {
   }
 
   const renderVisual = () => {
-    if (service.imagen === 'faceid') {
-      return (
-        <div className="service-detail__visual service-detail__visual--faceid" aria-hidden="true">
-          <div className="faceid-graphic faceid-graphic--detail">
-            <span className="faceid-graphic__label">Face ID</span>
-          </div>
-        </div>
-      )
-    }
+    const detailImage =
+      service.id === 'reparacion-face-id'
+        ? '/src/assets/services/faceid-real2.jpg'
+        : service.imageUrl
 
     return (
       <div className="service-detail__visual" aria-hidden="true">
-        <img src={service.imageUrl} alt={service.nombre} className="service-detail__image" />
+        <img src={detailImage} alt={service.nombre} className="service-detail__image" />
       </div>
     )
   }
@@ -212,7 +211,7 @@ export default function ServiceDetailPage() {
             <p>{service.descripcion}</p>
 
             <div className="service-detail__actions">
-              <Button>Consultar reparación</Button>
+              <Button onClick={handleConsultService}>Consultar reparación</Button>
               <Link to="/servicios" className="btn btn-secondary">
                 Volver a servicios
               </Link>

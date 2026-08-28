@@ -48,7 +48,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   width: 100%;
 }
 
@@ -507,6 +507,13 @@ p {
 .service-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.service-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .service-card__visual {
@@ -642,7 +649,7 @@ p {
 
 .text-link {
   display: inline-flex;
-  margin-top: 18px;
+  margin-top: auto;
   color: var(--color-text);
   font-weight: 600;
 }

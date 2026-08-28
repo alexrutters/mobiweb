@@ -38,7 +38,7 @@ export const services = [
     categoria: 'Biometría',
     descripcion: 'Solución para sensores y componentes del sistema facial con calibración profesional.',
     imagen: 'faceid',
-    imageUrl: '/src/assets/services/faceid.svg',
+    imageUrl: '/src/assets/services/faceid-real1.jpeg',
     destacado: false,
     beneficios: ['Recalibración', 'Sensor funcional', 'Diagnóstico preciso'],
     proceso: ['Revisión del módulo', 'Reemplazo o ajuste', 'Validación biométrica'],
@@ -132,5 +132,16 @@ export const services = [
     proceso: ['Evaluación del equipo', 'Diagnóstico especializado', 'Reparación y prueba'],
   },
 ]
+
+export const WHATSAPP_NUMBER = '593958612055'
+
+export const buildServiceWhatsAppMessage = (serviceName) =>
+  `Hola, quiero consultar sobre el servicio de ${serviceName}.`
+
+export const openServiceWhatsApp = (serviceName) => {
+  const message = buildServiceWhatsAppMessage(serviceName)
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
 
 export const getServiceById = (id) => services.find((service) => service.id === id)
