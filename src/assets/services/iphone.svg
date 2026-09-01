@@ -1,0 +1,25 @@
+<svg width="900" height="640" viewBox="0 0 900 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgIphone" x1="120" y1="60" x2="760" y2="580" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5FBFB"/>
+      <stop offset="1" stop-color="#D6EEF0"/>
+    </linearGradient>
+    <linearGradient id="bodyIphone" x1="350" y1="100" x2="560" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B2126"/>
+      <stop offset="1" stop-color="#0C1014"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="640" rx="40" fill="url(#bgIphone)"/>
+  <circle cx="720" cy="144" r="82" fill="#E6F7F8"/>
+  <circle cx="176" cy="490" r="58" fill="#E0F4F2"/>
+  <rect x="292" y="68" width="316" height="504" rx="42" fill="url(#bodyIphone)"/>
+  <rect x="318" y="102" width="264" height="438" rx="30" fill="#0E1721"/>
+  <rect x="332" y="120" width="236" height="402" rx="24" fill="#101B24"/>
+  <rect x="430" y="78" width="40" height="12" rx="6" fill="#4F5963"/>
+  <circle cx="450" cy="515" r="10" fill="#37424D"/>
+  <rect x="352" y="188" width="196" height="212" rx="20" fill="url(#bodyIphone)" opacity="0.2"/>
+  <rect x="390" y="240" width="120" height="96" rx="16" fill="#63D9D1" opacity="0.22"/>
+  <path d="M408 373C428 344 468 344 488 373V420H408V373Z" fill="#5AD6D1" opacity="0.92"/>
+  <path d="M365 314L410 286L455 314" stroke="#7EF0E7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <path d="M485 314L532 286L578 314" stroke="#7EF0E7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+</svg>
